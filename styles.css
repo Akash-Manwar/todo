@@ -8,11 +8,11 @@
 
 /* Body and Main Layout */
 body {
-    background-color: #f0f4ff;  /* Light blue background */
+    background-color: #f0f4ff;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     padding: 20px;
 }
 
@@ -21,22 +21,20 @@ body {
     flex-direction: row;
     width: 90%;
     max-width: 1200px;
+    gap: 20px;
 }
 
-/* Date Section Styling */
+/* Date Section */
 .date-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 25%;
-    margin-right: 20px;
-    background-color: #f9fcfe; /* Blue background */
-    color: rgb(241, 237, 237);
+    background-color: #f9fcfe;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
 }
 
 .date-btn {
@@ -48,6 +46,7 @@ body {
     font-size: 1rem;
     padding: 10px;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .date-btn:hover {
@@ -55,22 +54,25 @@ body {
 }
 
 .current-date {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #090909;
+    text-align: center;
     margin-top: 10px;
 }
 
-/* To-Do List Section */
+/* List Section */
 .list-section {
     width: 75%;
+    display: flex;
+    flex-direction: column;
 }
 
-.container {
+.container, .completed-container, .uncompleted-container {
     background-color: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    margin-bottom: 20px;
 }
 
 .title {
@@ -82,12 +84,12 @@ body {
 /* Task Input Section */
 .input-container {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
 input {
-    width: 75%;
+    flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -101,18 +103,16 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    padding: 10px;
+    padding: 10px 15px;
 }
 
 button:hover {
     background-color: #218838;
 }
 
-/* Task List Styles */
+/* Task List */
 .task-list {
     list-style-type: none;
-    padding: 0;
-    margin-bottom: 20px;
 }
 
 li {
@@ -121,108 +121,84 @@ li {
     margin: 10px 0;
     border-radius: 8px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
     align-items: center;
-    flex-wrap: wrap;  /* Ensure buttons and text wrap on small screens */
 }
 
 li span {
-    flex-grow: 1;
+    flex: 1;
+    word-break: break-word;
 }
 
-/* Styling for the buttons */
+/* Buttons inside tasks */
 li button {
     border: none;
-    padding: 8px 15px;
+    padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
-    flex-shrink: 0;
+    font-size: 0.9rem;
 }
 
-/* Complete Button */
+/* Specific button styles */
 li button.complete-btn {
-    background-color: #28a745;  /* Green for complete */
-    margin-right: auto;  /* Push to the left side */
+    background-color: #28a745;
+    color: white;
 }
 
-li button.complete-btn:hover {
-    background-color: #218838;
-}
-
-/* Delete Button */
 li button.delete-btn {
-    background-color: #ff4b5c;  /* Red for delete */
+    background-color: #ff4b5c;
+    color: white;
 }
 
-li button.delete-btn:hover {
-    background-color: #e63946;
-}
-
-/* Edit Button */
 li button.edit-btn {
-    background-color: #ffc107;  /* Yellow for edit */
+    background-color: #ffc107;
+    color: black;
 }
 
-li button.edit-btn:hover {
-    background-color: #e0a800;
-}
-
-/* Completed and Uncompleted Task Color Differentiation */
+/* Completed and Uncompleted Colors */
 li.completed {
-    background-color: #d4edda;  /* Light green for completed */
-    color: #155724;
+    background-color: #d4edda;
     border: 1px solid #c3e6cb;
 }
 
 li.uncompleted {
-    background-color: #d4e8ff;  /* Light blue for uncompleted */
-    color: #004085;
+    background-color: #d4e8ff;
     border: 1px solid #b8daff;
 }
 
-/* Section Title Styles */
+/* Headings */
 h2 {
     font-size: 1.5rem;
-    color: #333;
-    margin-top: 20px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-/* Completed and Uncompleted Section Styles */
-.completed-container, .uncompleted-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 900px) {
     .main-container {
         flex-direction: column;
     }
 
-    .container, .completed-container, .uncompleted-container {
+    .date-section, .list-section {
         width: 100%;
     }
 
     .input-container {
         flex-direction: column;
-        align-items: center;
     }
 
-    input {
+    button, input {
         width: 100%;
-        margin-bottom: 10px;
     }
+}
 
+@media (max-width: 500px) {
     li {
         flex-direction: column;
+        align-items: flex-start;
     }
 
     li button {
-        margin-top: 10px;
+        width: 100%;
     }
 }
