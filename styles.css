@@ -1,0 +1,228 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body and Main Layout */
+body {
+    background-color: #f0f4ff;  /* Light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Date Section Styling */
+.date-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    margin-right: 20px;
+    background-color: #f9fcfe; /* Blue background */
+    color: rgb(241, 237, 237);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.date-btn {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.date-btn:hover {
+    background-color: #004085;
+}
+
+.current-date {
+    font-size: 1.5rem;
+    color: #090909;
+    margin-top: 10px;
+}
+
+/* To-Do List Section */
+.list-section {
+    width: 75%;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Task Input Section */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 75%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Task List Styles */
+.task-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+li {
+    background-color: #e9ecef;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;  /* Ensure buttons and text wrap on small screens */
+}
+
+li span {
+    flex-grow: 1;
+}
+
+/* Styling for the buttons */
+li button {
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Complete Button */
+li button.complete-btn {
+    background-color: #28a745;  /* Green for complete */
+    margin-right: auto;  /* Push to the left side */
+}
+
+li button.complete-btn:hover {
+    background-color: #218838;
+}
+
+/* Delete Button */
+li button.delete-btn {
+    background-color: #ff4b5c;  /* Red for delete */
+}
+
+li button.delete-btn:hover {
+    background-color: #e63946;
+}
+
+/* Edit Button */
+li button.edit-btn {
+    background-color: #ffc107;  /* Yellow for edit */
+}
+
+li button.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Completed and Uncompleted Task Color Differentiation */
+li.completed {
+    background-color: #d4edda;  /* Light green for completed */
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+li.uncompleted {
+    background-color: #d4e8ff;  /* Light blue for uncompleted */
+    color: #004085;
+    border: 1px solid #b8daff;
+}
+
+/* Section Title Styles */
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+/* Completed and Uncompleted Section Styles */
+.completed-container, .uncompleted-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .container, .completed-container, .uncompleted-container {
+        width: 100%;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    li {
+        flex-direction: column;
+    }
+
+    li button {
+        margin-top: 10px;
+    }
+}
